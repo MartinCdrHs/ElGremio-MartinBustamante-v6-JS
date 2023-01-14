@@ -1,0 +1,4 @@
+@mixin textos ($centrado, $tamano) {
+    text-align: $centrado;
+    font-size: $tamano;
+}

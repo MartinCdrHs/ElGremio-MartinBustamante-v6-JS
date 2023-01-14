@@ -1,0 +1,17 @@
+#int-selec{
+    @extend .texto-blanco;
+    @include textos (center, 25px);
+    padding: $padding*5;
+    margin: 0;
+    span {
+        font-size: 28px;
+    }
+}
+
+
+
+#comunicado-titulo{
+    @extend .rojo-gremio;
+    font-size: 20px;
+    padding: $padding*3;
+}

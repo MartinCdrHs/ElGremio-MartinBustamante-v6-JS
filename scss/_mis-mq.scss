@@ -1,0 +1,161 @@
+@media screen and (min-width: 768px){
+
+
+    /* En pagina carta - Main */
+
+    .lista-carta{
+        width: 80%;
+        margin: auto;
+        font-size: 25px;
+    }
+
+    .titulo-carta{
+        font-size: 30px;
+    }
+
+    /* En Footer */
+
+    footer{
+        padding: 20px 10px;
+        justify-content: right;
+        ul{
+            li {
+            font-size: 20px;
+            padding: 5px;}
+        }
+    }
+
+    // Carrito
+
+    #boton img{
+        width: 120px;
+    }
+          
+    #bolsa{
+        margin-left: 140px;
+        max-width: 400px;
+    }
+
+    .item-span{
+        font-size: 15px;
+        width: 80%;
+    }
+    
+    .boton-borrar{
+        margin: 0px 5px;
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    /* En nav */
+
+    nav{ 
+        ul{
+            li:hover{
+            transform: scale(1.1);
+            transition-duration: 0.5s;
+            text-decoration: underline;
+            border-style: solid;
+            border-width: 1.5px;
+            border-radius: 3px;
+            border-color: #cc0d0d;}
+        }
+    }
+
+    .nav-link:hover{
+        color: #cc0d0d;
+    }
+
+
+    /* En pagina principal - Main */
+
+    h1{
+        font-size: 45px;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    .h2-grande{
+        font-size: 28px;
+    }
+
+    #int-selec{
+        font-size: 38px;
+        span{
+            font-size: 40px;
+        }
+    }
+
+    .hover-cont:hover{
+        background-color: #8f8f8f;
+        border-radius: 8px;
+    }
+    .hover-cont:hover .figure-caption{
+        color: #000000;
+    }
+
+    .figure-caption{font-size: 20px}
+
+    #comunicado-titulo{
+        font-size: 35px;
+    }
+
+    .grid-primera-letra{
+        grid-template-columns: 65px auto;
+    }
+
+    .letra-inicial{
+        font-size: 65px;
+    }
+
+    /* En pagina como llego - Main */
+
+    #mapa{
+        width: 90%;
+        height: 600px;
+        padding: 15px;
+    }
+
+    #dir-mapa{
+        padding: 15px;
+        font-size: 25px;
+    }
+
+    /* En pagina reservas */
+    .formulario{
+        width: 530px;
+    }
+
+    .campo{
+        font-weight: bolder;
+        color: #000000;
+    }
+
+    .formulario{ 
+        textarea{
+        font-weight: bolder;}
+    }
+
+    .boton:hover{
+        background-color: #000000;
+        color:rgb(204, 13, 13) ;
+        font-weight: bolder;
+    }
+
+    // En Footer
+
+    footer{
+        ul{
+            li{
+                img{
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+    }
+}

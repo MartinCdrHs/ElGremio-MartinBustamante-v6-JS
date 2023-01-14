@@ -1,0 +1,17 @@
+.container{
+    margin-top: 15px;
+    margin-bottom: 15px; 
+}
+
+.figure{
+    padding-top:$padding*3 ;
+}
+
+.figure-caption{
+    font-size: 15px;
+    @extend .texto-blanco;
+}
+
+.img-fluid {
+    width: 100%;
+}

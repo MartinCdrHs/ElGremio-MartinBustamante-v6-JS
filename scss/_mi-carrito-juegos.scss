@@ -1,0 +1,122 @@
+.precio-juego{
+    font-size: 13px;
+    color: #ffffff;
+}
+  
+.tarjeta-juego{
+    border-style:solid ;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+#boton{
+    cursor: pointer;
+    background-color: transparent;
+    border-style:none ;
+    img{
+        width: 60px;
+    }
+}
+
+  
+#carrito{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+      
+}
+  
+#bolsa{
+    margin: 0 15px;
+    margin-left: 75px;
+    background-color: white;
+    border: #cc0d0d solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 5;
+    position: absolute;
+    max-width: 250px;
+    
+}
+  
+.bolsa{
+    display: flex;
+    flex-direction: column;
+}
+  
+.bolsa-abierta{
+    display: none; 
+}
+  
+.item{
+    height: 55px;
+    border: #000000 solid;
+    border-width: 2px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+}
+  
+.item-span{
+    color: black;
+    font-size: 10px;
+    padding: 3px 5px;
+    width: 65%;
+    text-align: center;  
+}
+
+.no-item{
+    color: black;
+    font-size: 12px;
+    padding: 3px 5px;
+    width: 100%;
+    text-align: center;  
+}
+  
+.boton-borrar{
+    height: 50px;
+    width: 100%;
+    border-style:none ;
+    font-size: 12px;
+    padding: 0;
+    background-color: transparent;
+}
+  
+.item-borrar{
+    width: 10%;
+    border-left: #000000 solid 2px;
+    height: 50px;
+}
+  
+.item-img{
+    width: 53px;
+    border-right: #000000 solid 2px ;
+    img{
+        height: 50px;
+        width: 50px;
+    }
+}
+  
+
+  
+#total-reserva{
+    padding: 5px;
+    font-size: 15px;
+    text-align: center;
+}
+  
+.btn-reserva{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+  
+#boton-reserva{
+    background-color:#cc0d0d ;
+    font-size: 15px;
+    width: 100%;
+}

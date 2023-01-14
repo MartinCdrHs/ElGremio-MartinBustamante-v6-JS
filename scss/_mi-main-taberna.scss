@@ -1,0 +1,52 @@
+.titulo-carta{
+    @extend .texto-blanco;
+    @include textos (center, 18px);
+    padding: $padding*3;
+}
+
+.lista-carta{
+    @extend .texto-blanco;
+    font-size: 15px;
+    padding: $padding*2;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-areas:
+    "item1 precio1"
+    "item2 precio2"
+    "item3 precio3"
+    "item4 precio4"
+    "item5 precio5"
+    "item6 precio6"
+    "item7 precio7"
+    "item8 precio8"
+    "item9 precio9"
+    "item10 precio10"
+    "item11 precio11"
+    "item12 precio12";
+}
+
+#item1{grid-area: item1; padding: 5px;}
+#item2{grid-area: item2; padding: 5px;}
+#item3{grid-area: item3; padding: 5px;}
+#item4{grid-area: item4; padding: 5px;}
+#item5{grid-area: item5; padding: 5px;}
+#item6{grid-area: item6; padding: 5px;}
+#item7{grid-area: item7; padding: 5px;}
+#item8{grid-area: item8; padding: 5px;}
+#item9{grid-area: item9; padding: 5px;}
+#item10{grid-area: item10; padding: 5px;}
+#item11{grid-area: item11; padding: 5px;}
+#item12{grid-area: item12; padding: 5px;}
+
+#precio1{grid-area: precio1; text-align: right; padding: 5px;}
+#precio2{grid-area: precio2; text-align: right; padding: 5px;}
+#precio3{grid-area: precio3; text-align: right; padding: 5px;}
+#precio4{grid-area: precio4; text-align: right; padding: 5px;}
+#precio5{grid-area: precio5; text-align: right; padding: 5px;}
+#precio6{grid-area: precio6; text-align: right; padding: 5px;}
+#precio7{grid-area: precio7; text-align: right; padding: 5px;}
+#precio8{grid-area: precio8; text-align: right; padding: 5px;}
+#precio9{grid-area: precio9; text-align: right; padding: 5px;}
+#precio10{grid-area: precio10; text-align: right; padding: 5px;}
+#precio11{grid-area: precio11; text-align: right; padding: 5px;}
+#precio12{grid-area: precio12; text-align: right; padding: 5px;}

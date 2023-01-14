@@ -1,0 +1,24 @@
+#div-mapa{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "mapa"
+    "dir-mapa";
+    div{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#mapa{
+    width: 100%;
+    height: 400px;
+    padding: 5px;
+
+}
+
+#dir-mapa{
+    padding: 10px;
+    @extend .texto-blanco;
+    font-size: 18px;
+}
