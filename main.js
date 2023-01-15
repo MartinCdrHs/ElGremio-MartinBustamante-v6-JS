@@ -14,7 +14,7 @@ const botonReserva = document.getElementById ("boton-reserva") // boton de confi
 
 let reservaTotal = 0
 
-let carrito = []
+// let carrito = []
 
 let juegos = []
 
@@ -27,14 +27,15 @@ const traerJuegos = async () => {
         const data = await resp.json()
         juegos = data
         mostrarJuegos()
-        verificarStock()
-        corregirStock()
+        
 
     }catch (error){
         console.log(error);
     }
 }
 traerJuegos()
+
+
 
 // console.log(juegos);
 
@@ -60,6 +61,8 @@ const mostrarJuegos = () => {
 mostrarJuegos()
 
 
+
+
 // Codigo para traer items a la bolsa
 
 const escucharTienda = () => {
@@ -73,13 +76,11 @@ escucharTienda()
 
 
 const verificarStock = (itemId)=> {
-    // console.log(ItemId);
+    
     const item = juegos.find(elemento => elemento.id == itemId)
-    // console.log(item);
+    
     if(item.stock >= 1){
         agregarCarrito (item)
-        item.stock --
-        console.log (carrito)
         
     }else{
         Swal.fire({
@@ -122,7 +123,8 @@ const agregarCarrito = (item) => {
               background: "linear-gradient(to right, #cc0d0d, #c2c2c2)",
             }
         }).showToast();
-        
+
+        item.stock --
     }
 }
 
@@ -187,7 +189,6 @@ const mostrarTotal = () => {
 // Codigo borrar items de la bolsa 
 
 const corregirStock = (itemId) => {
-
     const item = juegos.find(elemento => elemento.id == itemId)
     item.stock ++
 }
