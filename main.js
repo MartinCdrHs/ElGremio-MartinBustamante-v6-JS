@@ -1,87 +1,3 @@
-// const carrito = []
-
-
-
-// const mostrarJuegos = () => {
-//     const listaJuegos = juegos.map (elemento => "- "+elemento.nombre+ " - $"+elemento.precio)
-//     alert ("Bienvenido al sistema de reserva de juegos de El Gremio, Aventurero!"+
-//     "\n\n"+"Esta es nuestra lista de juegos reservables: "+
-//     "\n\n"+listaJuegos.join("\n"))
-
-//     reservarJuego (listaJuegos)
-// };
-
-// const reservarJuego = (listaJuegos) => {
-//     let masJuegos = false;
-//     let nombreJuego = ""
-
-//     do {
-//         nombreJuego = prompt ("Qué juego quieres reservar?"+"\n\n"+listaJuegos.join("\n"))
-//         const juego = juegos.find(elemento => elemento.nombre.toLowerCase() === nombreJuego.toLowerCase())
-        
-        
-//         if (juego){
-//             verificarStock (juego.stock, juego)
-//         }else{
-//             alert ("El juego que habeis ingresado no está en nuestro arcón, eligid uno de la lista")
-//         }
-
-//         masJuegos = confirm ("Deseas reservar otro juego?")
-//     } while (masJuegos);
-
-//     mostrarCarrito ()
-// };
-
-// const verificarStock = (stockJuego, juego) => {
-//     if (stockJuego < 1) {
-//         alert ("Temo que ya no nos quedan más de esos, Aventurero") 
-//     }else {
-//         juego.stock = stockJuego - 1
-
-//         agregarCarrito (juego)
-//     }
-// }
-
-// const agregarCarrito = (juego) => {
-//     const repetidoCarrito = carrito.find(item => item.nombre.toLowerCase() === juego.nombre.toLowerCase())
-
-    
-//     if (repetidoCarrito){
-//         alert ("Alto ahi Aventurero! Parece que en tu bolsa ya tienes uno de estos. Deja algo para los demás!")
-//     }else{
-//         carrito.push (juego)
-//     }
-// }
-
-// const mostrarCarrito = () => {
-//     const bolsa = carrito.map (item => "- "+item.nombre+" - $"+item.precio)
-//     const confirmarBolsa = confirm ("¿Estás seguro de que quieres agregar a tu bolsa estos juegos?"+
-//     "\n\n"+bolsa.join("\n"))
-
-//     if (confirmarBolsa) {
-//         cerrarReserva (bolsa)
-//     }else{
-//         const itemBorrarBolsa = prompt ("Bien Aventurero, ¿qué quieres quitar?")
-//         borrarDeBolsa (itemBorrarBolsa)
-//     }
-// }
-
-// const borrarDeBolsa = (iBB) => {
-//     carrito.forEach ((elemento, index) => {
-//         if (elemento.nombre.toLowerCase() === iBB.toLowerCase()){
-//             carrito.splice (index, 1)
-//         }
-//     })
-//     mostrarCarrito()
-// }
-
-// const cerrarReserva = (bolsa) => {
-//     const reservaTotal = carrito.reduce ((acc, elemento) => acc + elemento.precio ,0)
-//     alert ("¡Todo listo Aventurero! El total por tus reservas es: $"+reservaTotal)
-// }
-
-// mostrarJuegos ()
-
 // Obteniendo objetos HTML
 
 const tienda = document.getElementById ("tienda") //div donde estan los juegos
@@ -98,21 +14,43 @@ const botonReserva = document.getElementById ("boton-reserva") // boton de confi
 
 let reservaTotal = 0
 
+
+// Fetch a mi base de datos dentro del proyecto
+
+const traerJuegos = async () => {
+    try{
+        const resp = await fetch("../juegos.json")
+        const data = resp.json()
+        return data
+    }catch (error){
+        console.log(error);
+    }
+}
+
+
 // Codigo para traer elementos del array al HTML
 
-juegos.forEach((juego) => {
-    const cadaJuego = document.createElement ("div")
-    cadaJuego.innerHTML = `
-        <figure class="figure tarjeta-juego" id="${juego.id}">
-            <img src="${juego.imagen}" class="figure-img img-fluid rounded" id="${juego.id}">
-            <figcaption class="figure-caption" id="${juego.id}">${juego.nombre}</figcaption>
-            <span class="precio-juego" id="${juego.id}">Precio de reserva: $${juego.precio}</span>
-        </figure>
-    `;
-    cadaJuego.className ="col-sm-12 col-md-6 col-lg-4"
-    tienda.append(cadaJuego)
+const mostrarJuegos = async () => {
     
-});
+    const juegos = await traerJuegos()
+
+    juegos.forEach((juego) => {
+        const cadaJuego = document.createElement ("div")
+        cadaJuego.innerHTML = `
+            <figure class="figure tarjeta-juego" id="${juego.id}">
+                <img src="${juego.imagen}" class="figure-img img-fluid rounded" id="${juego.id}">
+                <figcaption class="figure-caption" id="${juego.id}">${juego.nombre}</figcaption>
+                <span class="precio-juego" id="${juego.id}">Precio de reserva: $${juego.precio}</span>
+            </figure>
+        `;
+        cadaJuego.className ="col-sm-12 col-md-6 col-lg-4"
+        tienda.append(cadaJuego)
+        
+    });
+}
+
+mostrarJuegos()
+
 
 // Codigo para traer items a la bolsa
 
@@ -126,7 +64,9 @@ escucharTienda()
 
 
 
-const verificarStock = (itemId)=> {
+const verificarStock = async (itemId)=> {
+    const juegos = await traerJuegos()
+
     const item = juegos.find(elemento => elemento.id == itemId)
     
     if(item.stock >= 1){
@@ -238,7 +178,9 @@ const mostrarTotal = () => {
 
 // Codigo borrar items de la bolsa 
 
-const corregirStock = (itemId) => {
+const corregirStock = async (itemId) => {
+    const juegos = await traerJuegos()
+    
     const item = juegos.find(elemento => elemento.id == itemId)
     item.stock ++
 }
@@ -326,13 +268,3 @@ document.addEventListener ("DOMContentLoaded", () => {
         
     }
 })
-
-
-
-
-
-
-
-
-
-
