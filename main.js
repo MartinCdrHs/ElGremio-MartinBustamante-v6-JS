@@ -14,26 +14,34 @@ const botonReserva = document.getElementById ("boton-reserva") // boton de confi
 
 let reservaTotal = 0
 
+let carrito = []
+
+let juegos = []
+
 
 // Fetch a mi base de datos dentro del proyecto
 
 const traerJuegos = async () => {
     try{
         const resp = await fetch("../juegos.json")
-        const data = resp.json()
-        return data
+        const data = await resp.json()
+        juegos = data
+        mostrarJuegos()
+        verificarStock()
+        corregirStock()
+
     }catch (error){
         console.log(error);
     }
 }
+traerJuegos()
 
+// console.log(juegos);
 
 // Codigo para traer elementos del array al HTML
 
-const mostrarJuegos = async () => {
+const mostrarJuegos = () => {
     
-    const juegos = await traerJuegos()
-
     juegos.forEach((juego) => {
         const cadaJuego = document.createElement ("div")
         cadaJuego.innerHTML = `
@@ -64,15 +72,14 @@ escucharTienda()
 
 
 
-const verificarStock = async (itemId)=> {
-    const juegos = await traerJuegos()
-
+const verificarStock = (itemId)=> {
+    // console.log(ItemId);
     const item = juegos.find(elemento => elemento.id == itemId)
-    
+    // console.log(item);
     if(item.stock >= 1){
         agregarCarrito (item)
         item.stock --
-        console.log (item.stock)
+        console.log (carrito)
         
     }else{
         Swal.fire({
@@ -179,8 +186,7 @@ const mostrarTotal = () => {
 
 // Codigo borrar items de la bolsa 
 
-const corregirStock = async (itemId) => {
-    const juegos = await traerJuegos()
+const corregirStock = (itemId) => {
 
     const item = juegos.find(elemento => elemento.id == itemId)
     item.stock ++
