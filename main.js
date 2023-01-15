@@ -72,6 +72,7 @@ const verificarStock = async (itemId)=> {
     if(item.stock >= 1){
         agregarCarrito (item)
         item.stock --
+        console.log (item.stock)
         
     }else{
         Swal.fire({
@@ -180,7 +181,7 @@ const mostrarTotal = () => {
 
 const corregirStock = async (itemId) => {
     const juegos = await traerJuegos()
-    
+
     const item = juegos.find(elemento => elemento.id == itemId)
     item.stock ++
 }
